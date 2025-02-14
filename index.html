@@ -1,0 +1,461 @@
+<html>
+<head>
+    <title>Araç Yönetim Sistemi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #77aaff;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #77aaff;
+            font-weight: bold;
+        }
+        #showcase {
+            min-height: 400px;
+            background: url('https://placehold.co/1200x400') no-repeat 0 -400px;
+            text-align: center;
+            color: #fff;
+        }
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        .button_1 {
+            height: 38px;
+            background: #77aaff;
+            border: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #fff;
+        }
+        .button_1:hover {
+            background: #0056b3;
+        }
+        #main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .dark {
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container form {
+            width: 48%;
+        }
+        .form-container form input[type="text"],
+        .form-container form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-container form input[type="submit"] {
+            width: 100%;
+            background-color: #77aaff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .car-list {
+            margin-top: 20px;
+        }
+        .car-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .car-list table, th, td {
+            border: 1px solid #ddd;
+        }
+        .car-list th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        .car-list th {
+            background-color: #f2f2f2;
+        }
+        .car-list tr:hover {
+            background-color: #f1f1f1;
+        }
+        .car-list .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+        .car-list .actions a {
+            color: #333;
+            text-decoration: none;
+        }
+        .car-list .actions a:hover {
+            color: #77aaff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Araç</span> Yönetim Sistemi</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Anasayfa</a></li>
+                    <li><a href="araclar.html">Araçlar</a></li>
+                    <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Araçlarınızı Kolayca Yönetin</h1>
+            <p>Araç ekleme, kaldırma ve güncelleme işlemlerini hızlı ve kolay bir şekilde yapın.</p>
+        </div>
+    </section>
+
+    <section id="main" class="container">
+        <div class="form-container">
+            <form id="addCarForm">
+                <label for="carName">Araç Adı</label>
+                <input type="text" id="carName" name="carName" placeholder="Araç adı..">
+            
+                <label for="carModel">Model</label>
+                <input type="text" id="carModel" name="carModel" placeholder="Model..">
+            
+                <label for="carYear">Yıl</label>
+                <input type="number" id="carYear" name="carYear" placeholder="Yıl..">
+            
+                <input type="submit" value="Ekle">
+            </form>
+            
+
+            <form id="updateCarForm">
+                <h2>Araç Güncelle</h2>
+                <label for="updateCarId">Araç ID</label>
+                <input type="text" id="updateCarId" name="updateCarId" placeholder="Araç ID..">
+
+                <label for="updateCarName">Araç Adı</label>
+                <input type="text" id="updateCarName" name="updateCarName" placeholder="Araç adı..">
+
+                <label for="updateCarModel">Model</label>
+                <input type="text" id="updateCarModel" name="updateCarModel" placeholder="Model..">
+
+                <label for="updateCarYear">Yıl</label>
+                <input type="number" id="updateCarYear" name="updateCarYear" placeholder="Yıl..">
+
+                <input type="submit" value="Güncelle">
+            </form>
+        </div>
+
+        <div class="car-list">
+            <h2>Mevcut Araçlar</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Araç Adı</th>
+                    <th>Model</th>
+                    <th>Yıl</th>
+                    <th>İşlemler</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>BMW</td>
+                    <td>320i</td>
+                    <td>2020</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-edit"></i> Güncelle</a>
+                        <a href="#"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mercedes</td>
+                    <td>C200</td>
+                    <td>2019</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-edit"></i> Güncelle</a>
+                        <a href="#"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Audi</td>
+                    <td>A4</td>
+                    <td>2021</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-edit"></i> Güncelle</a>
+                        <a href="#"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Volkswagen</td>
+                    <td>Passat</td>
+                    <td>2018</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-edit"></i> Güncelle</a>
+                        <a href="#"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Ford</td>
+                    <td>Focus</td>
+                    <td>2017</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-edit"></i> Güncelle</a>
+                        <a href="#"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <script>
+        document.getElementById('addCarForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const carName = document.getElementById('carName').value;
+            const carModel = document.getElementById('carModel').value;
+            const carYear = document.getElementById('carYear').value;
+    
+            fetch('http://localhost:3000/add-car', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ carName, carModel, carYear }),
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Hata:', error));
+        });
+        // Mevcut ekleme işlemi scripti
+document.getElementById('addCarForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const carName = document.getElementById('carName').value;
+    const carModel = document.getElementById('carModel').value;
+    const carYear = document.getElementById('carYear').value;
+
+    fetch('http://localhost:3000/add-car', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carName, carModel, carYear }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        location.reload(); // Sayfayı yenile
+    })
+    .catch(error => console.error('Hata:', error));
+});
+
+// Güncelleme işlemi için scriptler
+document.getElementById('updateCarForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const id = document.getElementById('updateCarId').value;
+    const carName = document.getElementById('updateCarName').value;
+    const carModel = document.getElementById('updateCarModel').value;
+    const carYear = document.getElementById('updateCarYear').value;
+
+    fetch(`http://localhost:3000/update-car/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carName, carModel, carYear }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        location.reload(); // Sayfayı yenile
+    })
+    .catch(error => console.error('Hata:', error));
+});
+
+// Güncelleme formunu doldurmak için yardımcı fonksiyon
+document.querySelectorAll('.actions a:first-child').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const row = this.closest('tr');
+        const id = row.cells[0].textContent;
+        const name = row.cells[1].textContent;
+        const model = row.cells[2].textContent;
+        const year = row.cells[3].textContent;
+
+        document.getElementById('updateCarId').value = id;
+        document.getElementById('updateCarName').value = name;
+        document.getElementById('updateCarModel').value = model;
+        document.getElementById('updateCarYear').value = year;
+    });
+});
+// Sayfa yüklendiğinde araçları listele
+document.addEventListener('DOMContentLoaded', loadCars);
+
+// Araç ekleme formu
+document.getElementById('addCarForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const carName = document.getElementById('carName').value;
+    const carModel = document.getElementById('carModel').value;
+    const carYear = document.getElementById('carYear').value;
+
+    fetch('http://localhost:3000/add-car', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carName, carModel, carYear }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        loadCars(); // Tabloyu güncelle
+        this.reset(); // Formu temizle
+    })
+    .catch(error => console.error('Hata:', error));
+});
+
+// Güncelleme formu
+document.getElementById('updateCarForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const id = document.getElementById('updateCarId').value;
+    const carName = document.getElementById('updateCarName').value;
+    const carModel = document.getElementById('updateCarModel').value;
+    const carYear = document.getElementById('updateCarYear').value;
+
+    fetch(`http://localhost:3000/update-car/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carName, carModel, carYear }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        loadCars(); // Tabloyu güncelle
+        this.reset(); // Formu temizle
+    })
+    .catch(error => console.error('Hata:', error));
+});
+
+// Araçları listele
+function loadCars() {
+    fetch('http://localhost:3000/list-cars')
+        .then(response => response.json())
+        .then(cars => {
+            const tableBody = document.querySelector('.car-list table tbody');
+            tableBody.innerHTML = ''; // Mevcut listeyi temizle
+
+            cars.forEach(car => {
+                const row = `
+                    <tr>
+                        <td>${car.id}</td>
+                        <td>${car.car_name}</td>
+                        <td>${car.car_model}</td>
+                        <td>${car.car_year}</td>
+                        <td class="actions">
+                            <a href="#" onclick="fillUpdateForm(${car.id}, '${car.car_name}', '${car.car_model}', ${car.car_year})">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                            <a href="#" onclick="deleteCar(${car.id})">
+                                <i class="fas fa-trash-alt"></i> Sil
+                            </a>
+                        </td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch(error => console.error('Araçlar yüklenirken hata oluştu:', error));
+}
+
+// Güncelleme formunu doldur
+function fillUpdateForm(id, name, model, year) {
+    document.getElementById('updateCarId').value = id;
+    document.getElementById('updateCarName').value = name;
+    document.getElementById('updateCarModel').value = model;
+    document.getElementById('updateCarYear').value = year;
+}
+
+// Araç silme
+function deleteCar(id) {
+    if (confirm('Bu aracı silmek istediğinizden emin misiniz?')) {
+        fetch(`http://localhost:3000/delete-car/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            loadCars(); // Tabloyu güncelle
+        })
+        .catch(error => console.error('Silme hatası:', error));
+    }
+}
+    </script>
+    
+    
+</body>
+</html>

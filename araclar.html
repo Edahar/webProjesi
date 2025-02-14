@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>Araç Yönetim Sistemi - Araçlar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-roboto">
+    <header class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <a href="#" class="text-white">Araç Yönetim Sistemi</a>
+            </div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-blue-400">Anasayfa</a></li>
+                    <li><a href="araclar.html" class="text-blue-400 font-bold">Araçlar</a></li>
+                    <li><a href="hakkımızda.html" class="hover:text-blue-400">Hakkımızda</a></li>
+                    <li><a href="iletisim.html" class="hover:text-blue-400">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-10">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-6">Araçlar</h2>
+            <div class="flex justify-between mb-6">
+                <form id="addCarForm" class="w-1/2 mr-4">
+                    <h3 class="text-xl font-semibold mb-4">Araç Ekle</h3>
+                    <label for="carName" class="block mb-2">Araç Adı</label>
+                    <input type="text" id="carName" name="carName" placeholder="Araç adı.." class="w-full p-2 mb-4 border rounded">
+
+                    <label for="carModel" class="block mb-2">Model</label>
+                    <input type="text" id="carModel" name="carModel" placeholder="Model.." class="w-full p-2 mb-4 border rounded">
+
+                    <label for="carYear" class="block mb-2">Yıl</label>
+                    <input type="number" id="carYear" name="carYear" placeholder="Yıl.." class="w-full p-2 mb-4 border rounded">
+
+                    <input type="submit" value="Ekle" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 cursor-pointer">
+                </form>
+
+                <form id="updateCarForm" class="w-1/2 ml-4">
+                    <h3 class="text-xl font-semibold mb-4">Araç Güncelle</h3>
+                    <label for="updateCarId" class="block mb-2">Araç ID</label>
+                    <input type="text" id="updateCarId" name="updateCarId" placeholder="Araç ID.." class="w-full p-2 mb-4 border rounded">
+
+                    <label for="updateCarName" class="block mb-2">Araç Adı</label>
+                    <input type="text" id="updateCarName" name="updateCarName" placeholder="Araç adı.." class="w-full p-2 mb-4 border rounded">
+
+                    <label for="updateCarModel" class="block mb-2">Model</label>
+                    <input type="text" id="updateCarModel" name="updateCarModel" placeholder="Model.." class="w-full p-2 mb-4 border rounded">
+
+                    <label for="updateCarYear" class="block mb-2">Yıl</label>
+                    <input type="number" id="updateCarYear" name="updateCarYear" placeholder="Yıl.." class="w-full p-2 mb-4 border rounded">
+
+                    <input type="submit" value="Güncelle" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700 cursor-pointer">
+                </form>
+            </div>
+
+            <div class="car-list">
+                <h3 class="text-xl font-semibold mb-4">Mevcut Araçlar</h3>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="border p-2">ID</th>
+                            <th class="border p-2">Araç Adı</th>
+                            <th class="border p-2">Model</th>
+                            <th class="border p-2">Yıl</th>
+                            <th class="border p-2">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border p-2">1</td>
+                            <td class="border p-2">BMW</td>
+                            <td class="border p-2">320i</td>
+                            <td class="border p-2">2020</td>
+                            <td class="border p-2 flex justify-around">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> Güncelle</a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i> Sil</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border p-2">2</td>
+                            <td class="border p-2">Mercedes</td>
+                            <td class="border p-2">C200</td>
+                            <td class="border p-2">2019</td>
+                            <td class="border p-2 flex justify-around">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> Güncelle</a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i> Sil</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">Audi</td>
+                            <td class="border p-2">A4</td>
+                            <td class="border p-2">2021</td>
+                            <td class="border p-2 flex justify-around">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> Güncelle</a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i> Sil</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border p-2">4</td>
+                            <td class="border p-2">Volkswagen</td>
+                            <td class="border p-2">Passat</td>
+                            <td class="border p-2">2018</td>
+                            <td class="border p-2 flex justify-around">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> Güncelle</a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i> Sil</a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border p-2">5</td>
+                            <td class="border p-2">Ford</td>
+                            <td class="border p-2">Focus</td>
+                            <td class="border p-2">2017</td>
+                            <td class="border p-2 flex justify-around">
+                                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i> Güncelle</a>
+                                <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i> Sil</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
